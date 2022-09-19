@@ -1,13 +1,23 @@
 @import "_resetStyles.scss";
+@import "_fonts.scss";
 
 body {
-  background-color: #e7b68b;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  //padding-top: 20px;
+  // padding-bottom: 30px;
+  //padding-left: 2%;
+  //padding-right: 2%;
+  background-color: #d6c493;
+  color: #232760;
+  //font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+  font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  //font-family: "Dancing Script", cursive;
 }
 .wrapper {
-  background-color: #e8ee48;
-  border-radius: 20px;
+  width: calc(100vw - 100px);
   max-width: 1400px;
-  margin: 0px auto;
+  height: 100%;
+  height: 800px;
+  margin: 50px auto;
+  border-radius: 30px;
+  background-color: #ebe0c2;
 }
