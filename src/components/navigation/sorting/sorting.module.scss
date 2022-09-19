@@ -1,0 +1,16 @@
+.sorting {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin: 0px 50px 0px 10px;
+}
+.title {
+  margin-right: 5px;
+  cursor: pointer;
+  span:first-child {
+    font-size: 14px;
+    margin-right: 5px;
+  }
+}

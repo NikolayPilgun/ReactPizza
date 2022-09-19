@@ -1,5 +1,6 @@
-import CenterColumn from "./center/CenterColumn";
 import styles from "./header.module.scss";
+
+import CenterColumn from "./center/CenterColumn";
 import LeftColumn from "./left/LeftColumn";
 import RightColumn from "./right/RightColumn";
 

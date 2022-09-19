@@ -1,0 +1,28 @@
+.container {
+  margin: 0px 15px 0px 15px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  li {
+    margin: 0px 15px 0px 15px;
+    padding: 10px 15px 10px 15px;
+    background-color: #ebdcb3;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+  }
+  .active {
+    background-color: #c0a354;
+  }
+  .active:hover {
+    background-color: #c0a354;
+  }
+  li:hover {
+    background-color: #e8d6a4;
+  }
+}

@@ -1,4 +1,5 @@
 import styles from "./centerColumn.module.scss";
+
 import { AiFillClockCircle } from "react-icons/ai";
 import { HiPhone } from "react-icons/hi";
 

@@ -1,4 +1,5 @@
 import styles from "./leftColumn.module.scss";
+
 import logoPizza from "./logoPizza.png";
 
 function LeftColumn() {
