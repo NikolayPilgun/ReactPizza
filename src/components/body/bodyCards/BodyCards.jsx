@@ -8,6 +8,9 @@ function BodyCards() {
       <BodyCard />
       <BodyCard />
       <BodyCard />
+      <BodyCard />
+      <BodyCard />
+      <BodyCard />
     </div>
   );
 }

@@ -13,7 +13,7 @@ function BodySubnav() {
         <li>
           <a href="#1">1</a>
         </li>
-        <li>
+        <li className={styles.active}>
           <a href="#1">2</a>
         </li>
         <li>

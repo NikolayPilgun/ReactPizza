@@ -13,8 +13,10 @@
     width: 45px;
     margin-right: 10px;
     border-radius: 30px;
-    border: 1px solid #232760;
+    border: 2px solid #232760;
     position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
     a {
       position: absolute;
       top: 10px;
@@ -29,5 +31,17 @@
     .forward {
       left: 14px;
     }
+  }
+  li:hover {
+    background-color: #e8d6a4;
+    border: 2px solid rgba(251, 75, 2, 1);
+  }
+  .active {
+    background-color: #c0a354;
+    border: 2px solid rgba(251, 75, 2, 1);
+  }
+  .active:hover {
+    background-color: #c0a354;
+    border: 2px solid rgba(251, 75, 2, 1);
   }
 }

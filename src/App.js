@@ -1,5 +1,6 @@
 import Banner from "./components/banner/Banner";
 import Body from "./components/body/Body";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
 import "./styles/index.scss";
@@ -11,6 +12,7 @@ function App() {
       <Banner />
       <Navigation />
       <Body />
+      <Footer />
     </div>
   );
 }
