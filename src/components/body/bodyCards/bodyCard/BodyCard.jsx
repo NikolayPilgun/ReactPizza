@@ -1,8 +1,12 @@
 import styles from "./bodyCard.module.scss";
-import Pizza from "./bodyImg/pizza7.png";
+import Pizza from "../../../../assets/bodyImg/pizza9.png";
+
 import { GoPlus } from "react-icons/go";
+import { useState } from "react";
 
 function BodyCard() {
+  const [quantity, setQuantity] = useState(0);
+
   return (
     <div className={styles.bodyCard}>
       <div className={styles.container}>
@@ -26,13 +30,18 @@ function BodyCard() {
         <div className={styles.order}>
           <div className={styles.price}>от 450 ₽</div>
           <div className={styles.button}>
-            <button className={`${styles.buttonCus} ${styles.btn}`}>
+            <button
+              className={`${styles.buttonCus} ${styles.btn}`}
+              onClick={() => setQuantity(quantity + 1)}
+            >
               <span className={styles.text}>
                 <span className={styles.plus}>
                   <GoPlus />
                 </span>
                 Добавить
-                <span className={styles.number}>0</span>
+                <span className={styles.number}>
+                  {quantity > 0 && quantity}
+                </span>
               </span>
             </button>
           </div>
