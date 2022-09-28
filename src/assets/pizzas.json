@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "bodyImg/pizza1.png",
+    "title": "Цыпленок карри",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 803,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "imageUrl": "bodyImg/pizza2.png",
+    "title": "Мясной Микс",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 562,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "bodyImg/pizza3.png",
+    "title": "Ветчина и сыр",
+    "types": [1],
+    "sizes": [30, 40],
+    "price": 690,
+    "category": 1,
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "imageUrl": "bodyImg/pizza4.png",
+    "title": "Сырная ",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 763,
+    "category": 2,
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "imageUrl": "bodyImg/pizza5.png",
+    "title": "Чоризо фреш",
+    "types": [0, 1],
+    "sizes": [30, 40],
+    "price": 590,
+    "category": 2,
+    "rating": 4
+  }
+]

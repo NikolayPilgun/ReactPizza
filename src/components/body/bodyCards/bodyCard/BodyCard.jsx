@@ -1,34 +1,49 @@
 import styles from "./bodyCard.module.scss";
-import Pizza from "../../../../assets/bodyImg/pizza9.png";
 
 import { GoPlus } from "react-icons/go";
 import { useState } from "react";
 
-function BodyCard() {
+function BodyCard({ id, imageUrl, title, price, sizes, types }) {
   const [quantity, setQuantity] = useState(0);
+  const [activeCardSizes, setActiveCardSizes] = useState(0);
+  const [activeCardType, setActiveCardType] = useState(0);
+  const typeNames = ["традиционное", "тонкое"];
 
   return (
     <div className={styles.bodyCard}>
       <div className={styles.container}>
         <div className={styles.bodyImg}>
-          <img src={Pizza} alt="пицца №1" />
+          <img src={imageUrl} alt={`Пицца  ${title} id#${id}`} />
         </div>
         <div className={styles.title}>
-          <h2>Мясной Микс</h2>
+          <h2>{title}</h2>
         </div>
         <div className={styles.choice}>
           <p className={styles.dough}>
-            <span className={styles.active}>тонкое</span>
-            <span>традиционное</span>
+            {types.map((type, index) => (
+              <span
+                key={index}
+                onClick={() => setActiveCardType(index)}
+                className={activeCardType === index ? styles.active : ""}
+              >
+                {typeNames[type]}
+              </span>
+            ))}
           </p>
           <p className={styles.size}>
-            <span>26 см.</span>
-            <span>30 см.</span>
-            <span className={styles.active}>40 см.</span>
+            {sizes.map((size, index) => (
+              <span
+                key={index}
+                onClick={() => setActiveCardSizes(index)}
+                className={activeCardSizes === index ? styles.active : ""}
+              >
+                {size} см.
+              </span>
+            ))}
           </p>
         </div>
         <div className={styles.order}>
-          <div className={styles.price}>от 450 ₽</div>
+          <div className={styles.price}>от {price} ₽</div>
           <div className={styles.button}>
             <button
               className={`${styles.buttonCus} ${styles.btn}`}
