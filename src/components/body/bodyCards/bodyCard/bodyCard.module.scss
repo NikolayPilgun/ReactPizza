@@ -21,16 +21,21 @@
   margin-bottom: 10px;
   font-size: 20px;
 }
+
 .choice {
   width: 250px;
   background-color: #e3d2a3;
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   text-align: center;
 }
 .dough {
-  margin: 10px 0px 30px 0px;
-  span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px 20px 0px;
+  li {
+    flex-grow: 1;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -41,9 +46,12 @@
   }
 }
 .size {
-  margin: 0px 0px 10px 0px;
-
-  span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 5px 0px;
+  li {
+    flex-grow: 1;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -52,6 +60,7 @@
     background-color: #c0a354;
   }
 }
+
 .order {
   width: 100%;
   display: flex;

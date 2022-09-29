@@ -19,28 +19,28 @@ function BodyCard({ id, imageUrl, title, price, sizes, types }) {
           <h2>{title}</h2>
         </div>
         <div className={styles.choice}>
-          <p className={styles.dough}>
+          <ul className={styles.dough}>
             {types.map((type, index) => (
-              <span
+              <li
                 key={index}
                 onClick={() => setActiveCardType(index)}
                 className={activeCardType === index ? styles.active : ""}
               >
                 {typeNames[type]}
-              </span>
+              </li>
             ))}
-          </p>
-          <p className={styles.size}>
+          </ul>
+          <ul className={styles.size}>
             {sizes.map((size, index) => (
-              <span
+              <li
                 key={index}
                 onClick={() => setActiveCardSizes(index)}
                 className={activeCardSizes === index ? styles.active : ""}
               >
                 {size} см.
-              </span>
+              </li>
             ))}
-          </p>
+          </ul>
         </div>
         <div className={styles.order}>
           <div className={styles.price}>от {price} ₽</div>

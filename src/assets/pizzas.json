@@ -48,5 +48,255 @@
     "price": 590,
     "category": 2,
     "rating": 4
+  },
+  {
+    "id": 6,
+    "imageUrl": "bodyImg/pizza6.png",
+    "title": "Песто",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 536,
+    "category": 2,
+    "rating": 3
+  },
+  {
+    "id": 7,
+    "imageUrl": "bodyImg/pizza7.png",
+    "title": "Сырный цыпленок",
+    "types": [0],
+    "sizes": [26, 30, 40],
+    "price": 628,
+    "category": 2,
+    "rating": 5
+  },
+  {
+    "id": 8,
+    "imageUrl": "bodyImg/pizza8.png",
+    "title": "Домашняя",
+    "types": [0, 1],
+    "sizes": [30, 40],
+    "price": 711,
+    "category": 2,
+    "rating": 4
+  },
+  {
+    "id": 9,
+    "imageUrl": "bodyImg/pizza9.png",
+    "title": "Ветчина и грибы",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 478,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": 10,
+    "imageUrl": "bodyImg/pizza10.png",
+    "title": "Маргарита",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 528,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 11,
+    "imageUrl": "bodyImg/pizza11.png",
+    "title": "Пепперони",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 629,
+    "category": 3,
+    "rating": 6
+  },
+  {
+    "id": 12,
+    "imageUrl": "bodyImg/pizza12.png",
+    "title": "Четыре сезона",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 489,
+    "category": 3,
+    "rating": 3
+  },
+  {
+    "id": 13,
+    "imageUrl": "bodyImg/pizza13.png",
+    "title": "Чизбургер-пицца",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 554,
+    "category": 3,
+    "rating": 4
+  },
+  {
+    "id": 14,
+    "imageUrl": "bodyImg/pizza14.png",
+    "title": "Мясная",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 621,
+    "category": 3,
+    "rating": 5
+  },
+  {
+    "id": 15,
+    "imageUrl": "bodyImg/pizza15.png",
+    "title": "Четыре сыра",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 533,
+    "category": 4,
+    "rating": 7
+  },
+  {
+    "id": 16,
+    "imageUrl": "bodyImg/pizza16.png",
+    "title": "Цыпленок барбекю",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 488,
+    "category": 4,
+    "rating": 3
+  },
+  {
+    "id": 17,
+    "imageUrl": "bodyImg/pizza17.png",
+    "title": "Цыпленок ранч",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 521,
+    "category": 4,
+    "rating": 5
+  },
+  {
+    "id": 18,
+    "imageUrl": "bodyImg/pizza18.png",
+    "title": "Диабло",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 499,
+    "category": 4,
+    "rating": 2
+  },
+  {
+    "id": 19,
+    "imageUrl": "bodyImg/pizza19.png",
+    "title": "Гавайская",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 502,
+    "category": 4,
+    "rating": 5
+  },
+  {
+    "id": 20,
+    "imageUrl": "bodyImg/pizza20.png",
+    "title": "Колбаски барбекю",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 577,
+    "category": 4,
+    "rating": 6
+  },
+  {
+    "id": 21,
+    "imageUrl": "bodyImg/pizza21.png",
+    "title": "Овощи гриль",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 472,
+    "category": 5,
+    "rating": 3
+  },
+  {
+    "id": 22,
+    "imageUrl": "bodyImg/pizza22.png",
+    "title": "Овощи и грибы",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 542,
+    "category": 5,
+    "rating": 5
+  },
+  {
+    "id": 23,
+    "imageUrl": "bodyImg/pizza23.png",
+    "title": "Двойная пепперони",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 617,
+    "category": 5,
+    "rating": 6
+  },
+  {
+    "id": 24,
+    "imageUrl": "bodyImg/pizza24.png",
+    "title": "Баварская",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 536,
+    "category": 5,
+    "rating": 3
+  },
+  {
+    "id": 25,
+    "imageUrl": "bodyImg/pizza25.png",
+    "title": "Крем-чиз с грибами",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 494,
+    "category": 5,
+    "rating": 4
+  },
+  {
+    "id": 26,
+    "imageUrl": "bodyImg/pizza26.png",
+    "title": "С ананасом и беконом",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 526,
+    "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 27,
+    "imageUrl": "bodyImg/pizza27.png",
+    "title": "Пепперони Грин",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 499,
+    "category": 5,
+    "rating": 3
+  },
+  {
+    "id": 28,
+    "imageUrl": "bodyImg/pizza28.png",
+    "title": "Микс Грин",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 537,
+    "category": 5,
+    "rating": 4
+  },
+  {
+    "id": 29,
+    "imageUrl": "bodyImg/pizza29.png",
+    "title": "Капричиоза",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 621,
+    "category": 5,
+    "rating": 3
+  },
+  {
+    "id": 30,
+    "imageUrl": "bodyImg/pizza30.png",
+    "title": "Гавайская",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 519,
+    "category": 5,
+    "rating": 4
   }
 ]
