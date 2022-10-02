@@ -1,45 +1,45 @@
 .bodyLoading {
-  flex: 0 0 300px;
-  height: 480px;
-  background: rgba(229, 214, 170, 0.6);
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+	flex: 0 0 300px;
+	height: 480px;
+	background: rgba(229, 214, 170, 0.6);
+	margin: 10px;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .circle {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: rgba(200, 184, 135, 0.7);
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	background: rgba(200, 184, 135, 0.7);
 }
 .title {
-  width: 240px;
-  height: 15px;
+	width: 250px;
+	height: 17px;
 }
 .choice {
-  width: 250px;
-  height: 100px;
+	width: 250px;
+	height: 110px;
 }
 .button {
-  width: 240px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  span {
-    display: inline-block;
-    background: rgba(200, 184, 135, 0.7);
-    width: 90px;
-    height: 40px;
-    border-radius: 10px;
-  }
+	width: 250px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+	span {
+		display: inline-block;
+		background: rgba(200, 184, 135, 0.7);
+		width: 90px;
+		height: 40px;
+		border-radius: 10px;
+	}
 }
 .general {
-  background: rgba(200, 184, 135, 0.7);
-  border-radius: 10px;
-  margin-top: 15px;
+	background: rgba(200, 184, 135, 0.7);
+	border-radius: 10px;
+	margin-top: 10px;
 }
