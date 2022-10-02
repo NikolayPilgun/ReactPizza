@@ -1,0 +1,19 @@
+.notFound {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 40px 0px 40px 0px;
+}
+.picture {
+	font-size: 200px;
+}
+.title {
+	font-size: 50px;
+	font-weight: bold;
+}
+.subTitle {
+	margin: 10px 0px 40px 0px;
+	font-size: 20px;
+	font-weight: bold;
+}
