@@ -1,24 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import Banner from "./components/banner/Banner";
 import Basket from "./components/basket/Basket";
 import Body from "./components/body/Body";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
+import Layout from "./components/layout/Layout";
 import NotFoundBlock from "./components/notFoundBlock/NotFoundBlock";
 import "./styles/index.scss";
 
 function App() {
 	return (
 		<div className="wrapper">
-			<Header />
-			<Banner />
 			<Routes>
-				<Route path="/" element={<Body />} />
-				<Route path="basket" element={<Basket />} />
-				<Route path="*" element={<NotFoundBlock />} />
+				<Route path="/" element={<Layout />}>
+					<Route index element={<Body />} />
+					<Route path="basket" element={<Basket />} />
+					<Route path="*" element={<NotFoundBlock />} />
+				</Route>
 			</Routes>
-
-			<Footer />
 		</div>
 	);
 }

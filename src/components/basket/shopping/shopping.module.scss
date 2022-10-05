@@ -1,0 +1,60 @@
+.shopping {
+	margin: 40px 0px 40px 0px;
+}
+.card {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.picture {
+	img {
+		width: 100px;
+		height: 100px;
+	}
+}
+.description {
+	width: 200px;
+	h2 {
+		font-size: 20px;
+	}
+	p {
+		margin-top: 10px;
+		font-size: 16px;
+		span {
+			margin-right: 5px;
+		}
+	}
+}
+.amount {
+	width: 130px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	h3 {
+		margin-right: 10px;
+		font-size: 24px;
+		text-align: center;
+	}
+	button {
+		margin-right: 10px;
+		font-size: 24px;
+		color: rgba(163, 19, 19, 0.8);
+	}
+	button:disabled {
+		color: rgba(98, 91, 91, 0.8);
+		cursor: none;
+	}
+}
+.price {
+	width: 150px;
+	text-align: center;
+	font-size: 24px;
+}
+.remove {
+	font-size: 24px;
+	color: rgba(163, 19, 19, 0.8);
+	cursor: pointer;
+}

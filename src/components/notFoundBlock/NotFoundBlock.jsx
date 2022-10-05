@@ -1,4 +1,5 @@
 import { AiFillBug } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import styles from "./notFound.module.scss";
 
 function NotFoundBlock() {
@@ -14,6 +15,11 @@ function NotFoundBlock() {
 				<h3>
 					К сожалению данная страница отсутствует в нашем интернет-магазине.
 				</h3>
+			</div>
+			<div className={styles.button}>
+				<Link to="/">
+					<button className={styles.btn}>Вернутся назад</button>
+				</Link>
 			</div>
 		</div>
 	);
