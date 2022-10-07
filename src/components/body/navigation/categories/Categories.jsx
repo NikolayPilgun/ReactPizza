@@ -1,36 +1,30 @@
-import { useState } from "react";
 import styles from "./categories.module.scss";
 
-function Categories() {
-  const [activeCategory, setActiveCategory] = useState(0);
+function Categories({ activeCategory, setActiveCategory }) {
+	const categories = [
+		"Все",
+		"Мясные",
+		"Вегетарианская",
+		"Гриль",
+		"Острые",
+		"Вкусные",
+	];
 
-  const categories = [
-    "Все",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Вкусные",
-  ];
-
-  const onClickCategory = (i) => {
-    setActiveCategory(i);
-  };
-  return (
-    <div className={styles.container}>
-      <ul className={styles.categories}>
-        {categories.map((value, index) => (
-          <li
-            key={index}
-            onClick={() => onClickCategory(index)}
-            className={activeCategory === index ? styles.active : ""}
-          >
-            {value}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+	return (
+		<div className={styles.container}>
+			<ul className={styles.categories}>
+				{categories.map((value, index) => (
+					<li
+						key={index}
+						onClick={() => setActiveCategory(index)}
+						className={activeCategory === index ? styles.active : ""}
+					>
+						{value}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
 }
 
 export default Categories;

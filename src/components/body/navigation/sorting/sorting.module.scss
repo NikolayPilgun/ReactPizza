@@ -1,39 +1,39 @@
 .sorting {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0px 30px 0px 10px;
-  position: relative;
-  cursor: pointer;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0px 30px 0px 10px;
+	position: relative;
+	cursor: pointer;
 }
 .title {
-  margin-right: 5px;
-  span:first-child {
-    font-size: 14px;
-    margin-right: 5px;
-  }
+	margin-right: 5px;
+	span:first-child {
+		font-size: 14px;
+		margin-right: 5px;
+	}
 }
 .sort {
-  width: 120px;
+	width: 170px;
 }
 .sortPopup {
-  position: absolute;
-  top: 20px;
-  left: 140px;
-  z-index: 10;
-  //transition: all 0.3s ease-out;
-  ul {
-    width: 140px;
-    height: 90px;
-    background: #ebdcb3;
-    // transition: all 0.3s ease-out;
-    li {
-      padding: 5px 5px 5px 15px;
-    }
-    .active {
-      background-color: #c0a354;
-    }
-  }
+	position: absolute;
+	top: 20px;
+	left: 140px;
+	z-index: 10;
+	//transition: all 0.3s ease-out;
+	ul {
+		width: 180px;
+		height: 100%;
+		background: #ebdcb3;
+		// transition: all 0.3s ease-out;
+		li {
+			padding: 5px 5px 5px 15px;
+		}
+		.active {
+			background-color: #c0a354;
+		}
+	}
 }
