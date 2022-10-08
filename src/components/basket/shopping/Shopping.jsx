@@ -9,8 +9,7 @@ import styles from "./shopping.module.scss";
 function Shopping({ imageUrl, title, id, sizes, types, price }) {
 	let [count, setCount] = useState(0);
 	const typeNames = ["традиционное", "тонкое"];
-	const knopka = [1];
-	console.log(knopka);
+
 	return (
 		<div className={styles.shopping}>
 			<div className={styles.card}>

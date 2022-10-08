@@ -6,7 +6,10 @@ import BodyTitle from "./bodyTitle/BodyTitle";
 import Navigation from "./navigation/Navigation";
 
 function Body() {
+	const [items, setItems] = useState([]);
+	const [searchValue, setSearchValue] = useState("");
 	const [activeCategory, setActiveCategory] = useState(0);
+	const [activeSubnav, setActiveSubnav] = useState(0);
 	const [activeSorting, setActiveSorting] = useState({
 		name: "популярности",
 		sort: "rating",
@@ -15,16 +18,23 @@ function Body() {
 		<div className={styles.body}>
 			<Navigation
 				activeCategory={activeCategory}
-				setActiveCategory={(index) => setActiveCategory(index)}
+				setActiveCategory={setActiveCategory}
 				activeSorting={activeSorting}
-				setActiveSorting={(index) => setActiveSorting(index)}
+				setActiveSorting={setActiveSorting}
 			/>
-			<BodyTitle />
+			<BodyTitle searchValue={searchValue} setSearchValue={setSearchValue} />
 			<BodyCards
+				items={items}
+				setItems={setItems}
 				activeCategory={activeCategory}
 				activeSorting={activeSorting}
+				searchValue={searchValue}
+				activeSubnav={activeSubnav}
 			/>
-			<BodySubnav />
+			<BodySubnav
+				activeSubnav={activeSubnav}
+				setActiveSubnav={setActiveSubnav}
+			/>
 		</div>
 	);
 }

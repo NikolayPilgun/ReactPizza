@@ -4,22 +4,29 @@ import styles from "./bodyCards.module.scss";
 import BodyLoading from "./bodyLoading/BodyLoading";
 //import pizzas from "../../../assets/pizzas.json";
 
-function BodyCards({ activeCategory, activeSorting }) {
+function BodyCards({
+	items,
+	setItems,
+	activeCategory,
+	activeSorting,
+	searchValue,
+	activeSubnav,
+}) {
 	//https://63382770937ea77bfdbb4510.mockapi.io/items
-	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-
-	const loading = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	const loading = [...Array(10).keys()];
 
 	useEffect(() => {
 		setIsLoading(true);
 
 		fetch(
-			`https://63382770937ea77bfdbb4510.mockapi.io/items?${
+			`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
+				activeSubnav + 1
+			}&limit=10&${
 				activeCategory > 0 ? `category=${activeCategory}` : ""
 			}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
 				activeSorting.sort.includes("-") ? "asc" : "desc"
-			}`
+			}${searchValue ? `&search=${searchValue}` : ""}`
 		)
 			.then((res) => {
 				return res.json();
@@ -28,12 +35,12 @@ function BodyCards({ activeCategory, activeSorting }) {
 				setItems(pizzas);
 				setIsLoading(false);
 			});
-	}, [activeCategory, activeSorting]);
+	}, [activeCategory, activeSorting, searchValue, activeSubnav]);
 
 	return (
 		<div className={styles.bodyCards}>
 			{isLoading
-				? loading.map((load) => <BodyLoading key={load} />)
+				? loading.map((load, index) => <BodyLoading key={index} />)
 				: items.map((card) => (
 						<BodyCard
 							key={card.id}
@@ -50,3 +57,15 @@ function BodyCards({ activeCategory, activeSorting }) {
 }
 
 export default BodyCards;
+
+// .filter((card) => {
+// 	if (
+// 		card.title
+// 			.toLocaleLowerCase()
+// 			.includes(searchValue.toLocaleLowerCase())
+// 	) {
+// 		return true;
+// 	} else {
+// 		return false;
+// 	}
+// })
