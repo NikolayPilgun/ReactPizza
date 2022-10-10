@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { NavContext } from "../../Body";
 import styles from "./categories.module.scss";
 
-function Categories({ activeCategory, setActiveCategory }) {
+function Categories() {
+	const { activeCategory, setActiveCategory } = useContext(NavContext);
 	const categories = [
 		"Все",
 		"Мясные",

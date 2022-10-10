@@ -2,22 +2,11 @@ import Categories from "./categories/Categories";
 import styles from "./nav.module.scss";
 import Sorting from "./sorting/Sorting";
 
-function Navigation({
-	activeCategory,
-	setActiveCategory,
-	activeSorting,
-	setActiveSorting,
-}) {
+function Navigation() {
 	return (
 		<nav className={styles.navigation}>
-			<Categories
-				activeCategory={activeCategory}
-				setActiveCategory={setActiveCategory}
-			/>
-			<Sorting
-				activeSorting={activeSorting}
-				setActiveSorting={setActiveSorting}
-			/>
+			<Categories />
+			<Sorting />
 		</nav>
 	);
 }

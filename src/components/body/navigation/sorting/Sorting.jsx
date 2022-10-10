@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { NavContext } from "../../Body";
 import styles from "./sorting.module.scss";
 
-function Sorting({ activeSorting, setActiveSorting }) {
+function Sorting() {
+	const { activeSorting, setActiveSorting } = useContext(NavContext);
 	const [sorting, setSorting] = useState(false);
 	const list = [
 		{ name: "популярности(DESC)", sort: "rating" },
