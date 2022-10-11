@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./body.module.scss";
 import BodyCards from "./bodyCards/BodyCards";
 import BodySubnav from "./bodySubnav/BodySubnav";
@@ -12,11 +13,11 @@ function Body() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchValue, setSearchValue] = useState("");
 	const [activeSubnav, setActiveSubnav] = useState(0);
-	const [activeCategory, setActiveCategory] = useState(0);
 	const [activeSorting, setActiveSorting] = useState({
 		name: "популярности",
 		sort: "rating",
 	});
+	const categorIndex = useSelector((state) => state.categorys.categorIndex);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -25,7 +26,7 @@ function Body() {
 			`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
 				activeSubnav + 1
 			}&limit=10&${
-				activeCategory > 0 ? `category=${activeCategory}` : ""
+				categorIndex > 0 ? `category=${categorIndex}` : ""
 			}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
 				activeSorting.sort.includes("-") ? "asc" : "desc"
 			}${searchValue ? `&search=${searchValue}` : ""}`
@@ -37,14 +38,12 @@ function Body() {
 				setItems(pizzas);
 				setIsLoading(false);
 			});
-	}, [activeCategory, activeSorting, searchValue, activeSubnav]);
+	}, [categorIndex, activeSorting, searchValue, activeSubnav]);
 
 	return (
 		<div className={styles.body}>
 			<NavContext.Provider
 				value={{
-					activeCategory,
-					setActiveCategory,
 					activeSorting,
 					setActiveSorting,
 				}}

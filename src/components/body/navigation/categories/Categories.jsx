@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { NavContext } from "../../Body";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveCategory } from "../../../../redux/slices/categorySlice";
 import styles from "./categories.module.scss";
 
 function Categories() {
-	const { activeCategory, setActiveCategory } = useContext(NavContext);
+	const categorIndex = useSelector((state) => state.categorys.categorIndex);
+	const dispatch = useDispatch();
+
 	const categories = [
 		"Все",
 		"Мясные",
@@ -19,8 +21,8 @@ function Categories() {
 				{categories.map((value, index) => (
 					<li
 						key={index}
-						onClick={() => setActiveCategory(index)}
-						className={activeCategory === index ? styles.active : ""}
+						onClick={() => dispatch(setActiveCategory(index))}
+						className={categorIndex === index ? styles.active : ""}
 					>
 						{value}
 					</li>
