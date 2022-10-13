@@ -12,15 +12,28 @@ function Body() {
 	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchValue, setSearchValue] = useState("");
-	const [activeSubnav, setActiveSubnav] = useState(0);
+	const [numberPages, setNumberPages] = useState(1);
 	const [activeSorting, setActiveSorting] = useState({
 		name: "популярности",
 		sort: "rating",
 	});
 	const categorIndex = useSelector((state) => state.categorys.categorIndex);
+	const activeSubnav = useSelector((state) => state.subnav.activeSubnav);
 
 	useEffect(() => {
 		setIsLoading(true);
+		fetch(
+			`https://63382770937ea77bfdbb4510.mockapi.io/items?${
+				categorIndex > 0 ? `category=${categorIndex}` : ""
+			}${searchValue ? `&search=${searchValue}` : ""}`
+		)
+			.then((respage) => {
+				return respage.json();
+			})
+			.then((pizzpage) => {
+				let page = Math.ceil(pizzpage.length / 10);
+				setNumberPages(page);
+			});
 
 		fetch(
 			`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
@@ -36,6 +49,7 @@ function Body() {
 			})
 			.then((pizzas) => {
 				setItems(pizzas);
+
 				setIsLoading(false);
 			});
 	}, [categorIndex, activeSorting, searchValue, activeSubnav]);
@@ -52,10 +66,7 @@ function Body() {
 			</NavContext.Provider>
 			<BodyTitle searchValue={searchValue} setSearchValue={setSearchValue} />
 			<BodyCards items={items} isLoading={isLoading} />
-			<BodySubnav
-				activeSubnav={activeSubnav}
-				setActiveSubnav={setActiveSubnav}
-			/>
+			<BodySubnav numberPages={numberPages} />
 		</div>
 	);
 }
