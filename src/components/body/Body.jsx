@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./body.module.scss";
@@ -22,34 +23,29 @@ function Body() {
 
 	useEffect(() => {
 		setIsLoading(true);
-		fetch(
-			`https://63382770937ea77bfdbb4510.mockapi.io/items?${
-				categorIndex > 0 ? `category=${categorIndex}` : ""
-			}${searchValue ? `&search=${searchValue}` : ""}`
-		)
-			.then((respage) => {
-				return respage.json();
-			})
-			.then((pizzpage) => {
-				let page = Math.ceil(pizzpage.length / 10);
+		axios
+			.get(
+				`https://63382770937ea77bfdbb4510.mockapi.io/items?${
+					categorIndex > 0 ? `category=${categorIndex}` : ""
+				}${searchValue ? `&search=${searchValue}` : ""}`
+			)
+			.then((res) => {
+				let page = Math.ceil(res.data.length / 10);
 				setNumberPages(page);
 			});
 
-		fetch(
-			`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
-				activeSubnav + 1
-			}&limit=10&${
-				categorIndex > 0 ? `category=${categorIndex}` : ""
-			}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
-				activeSorting.sort.includes("-") ? "asc" : "desc"
-			}${searchValue ? `&search=${searchValue}` : ""}`
-		)
-			.then((res) => {
-				return res.json();
-			})
-			.then((pizzas) => {
-				setItems(pizzas);
-
+		axios
+			.get(
+				`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
+					activeSubnav + 1
+				}&limit=10&${
+					categorIndex > 0 ? `category=${categorIndex}` : ""
+				}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
+					activeSorting.sort.includes("-") ? "asc" : "desc"
+				}${searchValue ? `&search=${searchValue}` : ""}`
+			)
+			.then((response) => {
+				setItems(response.data);
 				setIsLoading(false);
 			});
 	}, [categorIndex, activeSorting, searchValue, activeSubnav]);
@@ -64,7 +60,7 @@ function Body() {
 			>
 				<Navigation />
 			</NavContext.Provider>
-			<BodyTitle searchValue={searchValue} setSearchValue={setSearchValue} />
+			<BodyTitle setSearchValue={setSearchValue} />
 			<BodyCards items={items} isLoading={isLoading} />
 			<BodySubnav numberPages={numberPages} />
 		</div>
