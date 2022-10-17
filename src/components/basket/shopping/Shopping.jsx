@@ -1,14 +1,51 @@
-import { useState } from "react";
 import {
 	AiFillCloseCircle,
 	AiOutlineMinusCircle,
 	AiOutlinePlusCircle,
 } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import {
+	decrementQuantity,
+	decrementQuantityMain,
+	incrementQuantity,
+	incrementQuantityMain,
+	removeItemBasket,
+	removeQuantityMain,
+	totalSum,
+} from "../../../redux/slices/basketSlice";
 import styles from "./shopping.module.scss";
 
-function Shopping({ imageUrl, title, id, sizes, types, price }) {
-	let [count, setCount] = useState(0);
-	const typeNames = ["традиционное", "тонкое"];
+function Shopping({
+	imageUrl,
+	title,
+	id,
+	sizes,
+	types,
+	price,
+	quality,
+	positionNumber,
+}) {
+	const dispatch = useDispatch();
+	const onClickPlus = () => {
+		dispatch(incrementQuantity(positionNumber));
+		dispatch(incrementQuantityMain(id));
+		dispatch(totalSum());
+	};
+	const onClickMinus = () => {
+		dispatch(decrementQuantity(positionNumber));
+		dispatch(decrementQuantityMain(id));
+		dispatch(totalSum());
+	};
+
+	const onClickRemove = () => {
+		const removeMain = {
+			id: id,
+			quality: quality,
+		};
+		dispatch(removeItemBasket(positionNumber));
+		dispatch(totalSum());
+		dispatch(removeQuantityMain(removeMain));
+	};
 
 	return (
 		<div className={styles.shopping}>
@@ -19,24 +56,21 @@ function Shopping({ imageUrl, title, id, sizes, types, price }) {
 				<div className={styles.description}>
 					<h2>{title}</h2>
 					<p>
-						<span>{typeNames[types[0]]},</span>
-						<span>{sizes[1]}см</span>
+						<span>{types},</span>
+						<span>{sizes}см</span>
 					</p>
 				</div>
 				<div className={styles.amount}>
-					<button
-						disabled={count <= 1 ? true : false}
-						onClick={() => setCount(count - 1)}
-					>
+					<button disabled={quality <= 1 ? true : false} onClick={onClickMinus}>
 						<AiOutlineMinusCircle />
 					</button>
-					<h3>{count}</h3>
-					<button onClick={() => setCount(count + 1)}>
+					<h3>{quality}</h3>
+					<button onClick={onClickPlus}>
 						<AiOutlinePlusCircle />
 					</button>
 				</div>
-				<div className={styles.price}>{price * count} ₽</div>
-				<div className={styles.remove}>
+				<div className={styles.price}>{price * quality} ₽</div>
+				<div onClick={onClickRemove} className={styles.remove}>
 					<AiFillCloseCircle />
 				</div>
 			</div>

@@ -1,16 +1,20 @@
 import { BsCart4, BsFillArrowLeftCircleFill, BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import pizzas from "../../assets/pizzas.json";
+
+import { useDispatch, useSelector } from "react-redux";
+import { clearItemBasket } from "../../redux/slices/basketSlice";
 import styles from "./basket.module.scss";
 import Blank from "./blank/Blank";
 import Shopping from "./shopping/Shopping";
 function Basket() {
-	const arr = [1, 2, 3];
-	const colich = 3;
-	const sunna = 3848;
+	const dispatch = useDispatch();
+	const { pizzas, productQuality, totalPrice } = useSelector(
+		(state) => state.basket
+	);
+
 	return (
 		<div className={styles.basket}>
-			{arr.length > 1 ? (
+			{productQuality > 0 ? (
 				<div className={styles.container}>
 					<div className={styles.title}>
 						<div className={styles.title}>
@@ -20,32 +24,37 @@ function Basket() {
 							<h2>Корзина</h2>
 						</div>
 						<div className={styles.title}>
-							<span className={styles.cleaning}>
+							<span
+								onClick={() => dispatch(clearItemBasket())}
+								className={styles.cleaning}
+							>
 								<BsTrash />
 							</span>
 							<h2>Очистить корзину</h2>
 						</div>
 					</div>
-					{pizzas.map((card) => (
+					{pizzas.map((card, index) => (
 						<Shopping
-							key={card.id}
+							key={card.positionNumber}
 							id={card.id}
 							imageUrl={card.imageUrl}
 							title={card.title}
 							price={card.price}
 							sizes={card.sizes}
 							types={card.types}
+							quality={card.quality}
+							positionNumber={card.positionNumber}
 						/>
 					))}
 
 					<div className={styles.total}>
 						<div className={styles.total}>
 							<h2>Количество:</h2>
-							<span>{colich} шт.</span>
+							<span>{productQuality} шт.</span>
 						</div>
 						<div className={styles.total}>
 							<h2>Сумма заказа:</h2>
-							<span>{sunna} ₽</span>
+							<span>{totalPrice} ₽</span>
 						</div>
 					</div>
 					<div className={styles.button}>
