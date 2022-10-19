@@ -9,16 +9,16 @@ import {
 	totalSum,
 } from "../../../../redux/slices/basketSlice";
 
-function BodyCard({ id, imageUrl, title, price, sizes, types, qualityMain }) {
-	const [activeCardSizes, setActiveCardSizes] = useState(26);
-	const [activeCardType, setActiveCardType] = useState("традиционное");
+function BodyCard({ id, imageUrl, title, price, sizes, types }) {
+	const [activeCardSizes, setActiveCardSizes] = useState(sizes[0]);
+	const [activeCardType, setActiveCardType] = useState(types[0]);
 	const dispatch = useDispatch();
 	const positionNumber = String(id) + String(activeCardSizes) + activeCardType;
 	const basketItem = useSelector((state) =>
 		state.basket.counter.find((obj) => obj.id === id)
 	);
 
-	const addedCount = basketItem ? basketItem.quality : qualityMain;
+	const itemQuality = basketItem ? basketItem.quality : 0;
 
 	const onClickAddItemBasket = () => {
 		const itemPizza = {
@@ -33,7 +33,7 @@ function BodyCard({ id, imageUrl, title, price, sizes, types, qualityMain }) {
 		};
 		const counterPizza = {
 			id: id,
-			quality: qualityMain + 1,
+			quality: 1,
 		};
 
 		dispatch(addItemBasket(itemPizza));
@@ -87,7 +87,7 @@ function BodyCard({ id, imageUrl, title, price, sizes, types, qualityMain }) {
 								</span>
 								Добавить
 								<span className={styles.number}>
-									{addedCount > 0 && addedCount}
+									{itemQuality > 0 && itemQuality}
 								</span>
 							</span>
 						</button>

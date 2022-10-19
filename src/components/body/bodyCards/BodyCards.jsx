@@ -19,7 +19,6 @@ function BodyCards({ items, isLoading }) {
 							price={card.price}
 							sizes={card.sizes}
 							types={card.types}
-							qualityMain={card.qualityMain}
 						/>
 				  ))}
 		</div>

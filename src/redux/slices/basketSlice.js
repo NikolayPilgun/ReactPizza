@@ -38,6 +38,7 @@ export const basketSlice = createSlice({
 		},
 		clearItemBasket: (state) => {
 			state.pizzas = [];
+			state.counter = [];
 			state.productQuality = 0;
 			state.totalPrice = 0;
 		},
@@ -46,15 +47,17 @@ export const basketSlice = createSlice({
 			const findPizzasQuantity = state.pizzas.find(
 				(obj) => obj.positionNumber === action.payload
 			);
-
-			findPizzasQuantity.quality++;
+			if (findPizzasQuantity) {
+				findPizzasQuantity.quality++;
+			}
 		},
 		decrementQuantity: (state, action) => {
 			const findQuantity = state.pizzas.find(
 				(obj) => obj.positionNumber === action.payload
 			);
-
-			findQuantity.quality--;
+			if (findQuantity) {
+				findQuantity.quality--;
+			}
 		},
 
 		// counter
@@ -72,23 +75,25 @@ export const basketSlice = createSlice({
 			const findQuantityMain = state.counter.find(
 				(obj) => obj.id === action.payload
 			);
-
-			findQuantityMain.quality++;
+			if (findQuantityMain) {
+				findQuantityMain.quality++;
+			}
 		},
 		decrementQuantityMain: (state, action) => {
 			const findQuantityMain = state.counter.find(
 				(obj) => obj.id === action.payload
 			);
-
-			findQuantityMain.quality--;
+			if (findQuantityMain) {
+				findQuantityMain.quality--;
+			}
 		},
 		removeQuantityMain: (state, action) => {
 			const findRemoveMain = state.counter.find(
 				(obj) => obj.id === action.payload.id
 			);
-			console.log(findRemoveMain.quality);
-			console.log(action.payload.quality);
-			findRemoveMain.quality -= action.payload.quality;
+			if (findRemoveMain) {
+				findRemoveMain.quality -= action.payload.quality;
+			}
 		},
 	},
 });

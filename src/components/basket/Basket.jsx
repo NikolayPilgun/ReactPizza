@@ -33,7 +33,7 @@ function Basket() {
 							<h2>Очистить корзину</h2>
 						</div>
 					</div>
-					{pizzas.map((card, index) => (
+					{pizzas.map((card) => (
 						<Shopping
 							key={card.positionNumber}
 							id={card.id}

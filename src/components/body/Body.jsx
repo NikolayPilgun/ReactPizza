@@ -22,20 +22,43 @@ function Body() {
 	const activeSubnav = useSelector((state) => state.subnav.activeSubnav);
 
 	useEffect(() => {
-		setIsLoading(true);
-		axios
-			.get(
+		async function fetchData() {
+			setIsLoading(true);
+			// await axios
+			// 	.get(
+			// 		`https://63382770937ea77bfdbb4510.mockapi.io/items?${
+			// 			categorIndex > 0 ? `category=${categorIndex}` : ""
+			// 		}${searchValue ? `&search=${searchValue}` : ""}`
+			// 	)
+			// 	.then((res) => {
+			// 		let page = Math.ceil(res.data.length / 10);
+			// 		setNumberPages(page);
+			// 	});
+
+			const numberOfPages = await axios.get(
 				`https://63382770937ea77bfdbb4510.mockapi.io/items?${
 					categorIndex > 0 ? `category=${categorIndex}` : ""
 				}${searchValue ? `&search=${searchValue}` : ""}`
-			)
-			.then((res) => {
-				let page = Math.ceil(res.data.length / 10);
-				setNumberPages(page);
-			});
+			);
+			let pages = Math.ceil(numberOfPages.data.length / 10);
+			setNumberPages(pages);
 
-		axios
-			.get(
+			// await axios
+			// 	.get(
+			// 		`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
+			// 			activeSubnav + 1
+			// 		}&limit=10&${
+			// 			categorIndex > 0 ? `category=${categorIndex}` : ""
+			// 		}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
+			// 			activeSorting.sort.includes("-") ? "asc" : "desc"
+			// 		}${searchValue ? `&search=${searchValue}` : ""}`
+			// 	)
+			// 	.then((response) => {
+			// 		setItems(response.data);
+			// 		setIsLoading(false);
+			// 	});
+
+			const rpizzaList = await axios.get(
 				`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
 					activeSubnav + 1
 				}&limit=10&${
@@ -43,11 +66,12 @@ function Body() {
 				}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
 					activeSorting.sort.includes("-") ? "asc" : "desc"
 				}${searchValue ? `&search=${searchValue}` : ""}`
-			)
-			.then((response) => {
-				setItems(response.data);
-				setIsLoading(false);
-			});
+			);
+			setItems(rpizzaList.data);
+			setIsLoading(false);
+		}
+
+		fetchData();
 	}, [categorIndex, activeSorting, searchValue, activeSubnav]);
 
 	return (
