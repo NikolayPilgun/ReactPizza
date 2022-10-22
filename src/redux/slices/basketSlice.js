@@ -97,7 +97,9 @@ export const basketSlice = createSlice({
 		},
 	},
 });
-
+export const selectBasketById = (id) => (state) =>
+	state.basket.counter.find((obj) => obj.id === id);
+export const selectBasket = (state) => state.basket;
 export const {
 	addItemBasket,
 	removeItemBasket,

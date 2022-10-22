@@ -1,17 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { fetchPagesMain } from "./pageSlice";
 
 export const fetchPizzasMain = createAsyncThunk(
 	"pizzas/fetchPizzasMainRes",
-	async ({ activeSubnav, categorIndex, activeSorting, searchValue }) => {
+	async (params, thunkAPI) => {
+		const { currentPage, categorIndex, sortingIndex, searchValue } = params;
 		const pizzaList = await axios.get(
 			`https://63382770937ea77bfdbb4510.mockapi.io/items?page=${
-				activeSubnav + 1
+				currentPage + 1
 			}&limit=10&${
 				categorIndex > 0 ? `category=${categorIndex}` : ""
-			}&sortBy=${activeSorting.sort.replace("-", "")}&order=${
-				activeSorting.sort.includes("-") ? "asc" : "desc"
+			}&sortBy=${sortingIndex.sort.replace("-", "")}&order=${
+				sortingIndex.sort.includes("-") ? "asc" : "desc"
 			}${searchValue ? `&search=${searchValue}` : ""}`
+		);
+		thunkAPI.dispatch(
+			fetchPagesMain({
+				categorIndex: categorIndex,
+				searchValue: searchValue,
+			})
 		);
 		return pizzaList.data;
 	}
@@ -45,7 +53,7 @@ export const pizzasSlice = createSlice({
 			});
 	},
 });
-
+export const selectPizzas = (state) => state.pizzas;
 export const { setPizzasMain } = pizzasSlice.actions;
 
 export default pizzasSlice.reducer;

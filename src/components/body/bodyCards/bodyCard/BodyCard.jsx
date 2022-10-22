@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	addItemBasket,
 	addQuantityMain,
+	selectBasketById,
 	totalSum,
 } from "../../../../redux/slices/basketSlice";
 
@@ -14,9 +15,7 @@ function BodyCard({ id, imageUrl, title, price, sizes, types }) {
 	const [activeCardType, setActiveCardType] = useState(types[0]);
 	const dispatch = useDispatch();
 	const positionNumber = String(id) + String(activeCardSizes) + activeCardType;
-	const basketItem = useSelector((state) =>
-		state.basket.counter.find((obj) => obj.id === id)
-	);
+	const basketItem = useSelector(selectBasketById(id));
 
 	const itemQuality = basketItem ? basketItem.quality : 0;
 

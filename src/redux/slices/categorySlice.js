@@ -13,6 +13,7 @@ export const categorySlice = createSlice({
 		},
 	},
 });
+export const selectCategory = (state) => state.categorys.categorIndex;
 
 export const { setActiveCategory } = categorySlice.actions;
 

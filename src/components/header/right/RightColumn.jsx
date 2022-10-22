@@ -3,9 +3,10 @@ import styles from "./rightColumn.module.scss";
 import { BsCart4 } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectBasket } from "../../../redux/slices/basketSlice";
 
 function RightColumn() {
-	const { productQuality, totalPrice } = useSelector((state) => state.basket);
+	const { productQuality, totalPrice } = useSelector(selectBasket);
 
 	return (
 		<Link to="basket">
