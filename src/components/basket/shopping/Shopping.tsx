@@ -24,6 +24,15 @@ function Shopping({
 	price,
 	quality,
 	positionNumber,
+}: {
+	positionNumber: string;
+	id: number;
+	imageUrl: string;
+	title: string;
+	price: number;
+	sizes: number;
+	types: string;
+	quality: number;
 }) {
 	const dispatch = useDispatch();
 	const onClickPlus = () => {

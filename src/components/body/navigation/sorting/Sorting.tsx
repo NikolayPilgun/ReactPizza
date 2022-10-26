@@ -4,9 +4,18 @@ import { NavContext } from "../../Body";
 import styles from "./sorting.module.scss";
 
 function Sorting() {
-	const { activeSorting, setActiveSorting } = useContext(NavContext);
-	const [sorting, setSorting] = useState(false);
-	const list = [
+	const { activeSorting, setActiveSorting } = useContext<{
+		activeSorting: { name: string; sort: string };
+		setActiveSorting: any;
+	}>(NavContext);
+
+	const [sorting, setSorting] = useState<boolean>(false);
+
+	type ListType = {
+		name: string;
+		sort: string;
+	};
+	const list: ListType[] = [
 		{ name: "популярности(DESC)", sort: "rating" },
 		{ name: "популярности(ASC)", sort: "-rating" },
 		{ name: "цене(DESC)", sort: "price" },
