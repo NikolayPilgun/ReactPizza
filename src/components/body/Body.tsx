@@ -10,15 +10,16 @@ import BodyTitle from "./bodyTitle/BodyTitle";
 import Navigation from "./navigation/Navigation";
 
 type activeSortingType = { name: string; sort: string };
+// нужно разобраться и доделать
 type BodyContextType = {
 	activeSorting: activeSortingType;
-	setActiveSorting: any;
+	setActiveSorting: (val: activeSortingType) => void;
 };
 
 export const NavContext = React.createContext<BodyContextType>(
 	{} as BodyContextType
 );
-
+// нужно разобраться и доделать
 const Body: React.FC = () => {
 	const [searchValue, setSearchValue] = useState<string>("");
 	const [activeSorting, setActiveSorting] = useState<activeSortingType>({

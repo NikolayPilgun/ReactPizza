@@ -7,6 +7,17 @@ import styles from "./basket.module.scss";
 import Blank from "./blank/Blank";
 import Shopping from "./shopping/Shopping";
 
+type PizzasType = {
+	positionNumber: string;
+	id: number;
+	imageUrl: string;
+	title: string;
+	price: number;
+	sizes: number;
+	types: string;
+	quality: number;
+};
+
 const Basket: React.FC = () => {
 	const dispatch = useDispatch();
 	const { pizzas, productQuality, totalPrice } = useSelector(selectBasket);
@@ -32,30 +43,19 @@ const Basket: React.FC = () => {
 							<h2>Очистить корзину</h2>
 						</div>
 					</div>
-					{pizzas.map(
-						(card: {
-							positionNumber: string;
-							id: number;
-							imageUrl: string;
-							title: string;
-							price: number;
-							sizes: number;
-							types: string;
-							quality: number;
-						}) => (
-							<Shopping
-								key={card.positionNumber}
-								id={card.id}
-								imageUrl={card.imageUrl}
-								title={card.title}
-								price={card.price}
-								sizes={card.sizes}
-								types={card.types}
-								quality={card.quality}
-								positionNumber={card.positionNumber}
-							/>
-						)
-					)}
+					{pizzas.map((card: PizzasType) => (
+						<Shopping
+							key={card.positionNumber}
+							id={card.id}
+							imageUrl={card.imageUrl}
+							title={card.title}
+							price={card.price}
+							sizes={card.sizes}
+							types={card.types}
+							quality={card.quality}
+							positionNumber={card.positionNumber}
+						/>
+					))}
 
 					<div className={styles.total}>
 						<div className={styles.total}>

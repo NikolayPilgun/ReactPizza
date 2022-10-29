@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
 import styles from "./bodyTitle.module.scss";
 
-type BodyTitleProps = { setSearchValue: any };
+type BodyTitleProps = { setSearchValue: (val: string) => void };
 
 const BodyTitle: React.FC<BodyTitleProps> = ({ setSearchValue }) => {
 	const [search, setSearch] = useState<string>("");
@@ -12,14 +12,14 @@ const BodyTitle: React.FC<BodyTitleProps> = ({ setSearchValue }) => {
 
 	const debouncedSearch = useMemo(
 		() =>
-			debounce((val: any) => {
+			debounce((val: string) => {
 				setSearchValue(val);
 			}, 750),
 		[setSearchValue]
 	);
 
 	const onChangeSearch = useCallback(
-		(event: any) => {
+		(event: React.ChangeEvent<HTMLInputElement>) => {
 			setSearch(event.target.value);
 			debouncedSearch(event.target.value);
 		},

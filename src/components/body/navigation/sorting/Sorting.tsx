@@ -8,7 +8,7 @@ type SortingContextType = {
 		name: string;
 		sort: string;
 	};
-	setActiveSorting: any;
+	setActiveSorting: (obj: { name: string; sort: string }) => void;
 };
 
 const Sorting: React.FC = () => {

@@ -17,12 +17,15 @@ const BodySubnav: React.FC = () => {
 				<PageError />
 			) : (
 				<>
-					<button
-						disabled={activeSubnav === 0 ? true : false}
-						onClick={() => dispatch(setActiveSubnav(activeSubnav - 1))}
-					>
-						<AiFillCaretLeft />
-					</button>
+					{subnavArr.length > 0 && (
+						<button
+							disabled={activeSubnav === 0 ? true : false}
+							onClick={() => dispatch(setActiveSubnav(activeSubnav - 1))}
+						>
+							<AiFillCaretLeft />
+						</button>
+					)}
+
 					<ul className={styles.container}>
 						{subnavArr.map((value, index) => (
 							<li
@@ -34,12 +37,14 @@ const BodySubnav: React.FC = () => {
 							</li>
 						))}
 					</ul>
-					<button
-						disabled={activeSubnav === subnavArr.length - 1 ? true : false}
-						onClick={() => dispatch(setActiveSubnav(activeSubnav + 1))}
-					>
-						<AiFillCaretRight />
-					</button>
+					{subnavArr.length > 0 && (
+						<button
+							disabled={activeSubnav === subnavArr.length - 1 ? true : false}
+							onClick={() => dispatch(setActiveSubnav(activeSubnav + 1))}
+						>
+							<AiFillCaretRight />
+						</button>
+					)}
 				</>
 			)}
 		</div>
