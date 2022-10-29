@@ -1,6 +1,4 @@
-import styles from "./bodyCard.module.scss";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { GoPlus } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,8 +7,25 @@ import {
 	selectBasketById,
 	totalSum,
 } from "../../../../redux/slices/basketSlice";
+import styles from "./bodyCard.module.scss";
 
-function BodyCard({ id, imageUrl, title, price, sizes, types }) {
+type BodyCardProps = {
+	id: number;
+	imageUrl: string;
+	title: string;
+	price: number;
+	sizes: number[];
+	types: string[];
+};
+
+const BodyCard: React.FC<BodyCardProps> = ({
+	id,
+	imageUrl,
+	title,
+	price,
+	sizes,
+	types,
+}) => {
 	const [activeCardSizes, setActiveCardSizes] = useState(sizes[0]);
 	const [activeCardType, setActiveCardType] = useState(types[0]);
 	const dispatch = useDispatch();
@@ -95,6 +110,6 @@ function BodyCard({ id, imageUrl, title, price, sizes, types }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default BodyCard;

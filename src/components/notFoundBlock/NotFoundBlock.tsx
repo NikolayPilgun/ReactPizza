@@ -1,8 +1,9 @@
+import React from "react";
 import { AiFillBug } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import styles from "./notFound.module.scss";
 
-function NotFoundBlock() {
+const NotFoundBlock: React.FC = () => {
 	return (
 		<div className={styles.notFound}>
 			<div className={styles.picture}>
@@ -23,6 +24,6 @@ function NotFoundBlock() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default NotFoundBlock;

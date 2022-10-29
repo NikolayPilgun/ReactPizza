@@ -1,11 +1,11 @@
-import styles from "./rightColumn.module.scss";
-
+import React from "react";
 import { BsCart4 } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectBasket } from "../../../redux/slices/basketSlice";
+import styles from "./rightColumn.module.scss";
 
-function RightColumn() {
+const RightColumn: React.FC = () => {
 	const { productQuality, totalPrice } = useSelector(selectBasket);
 
 	return (
@@ -26,6 +26,6 @@ function RightColumn() {
 			</div>
 		</Link>
 	);
-}
+};
 
 export default RightColumn;

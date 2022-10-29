@@ -1,10 +1,10 @@
-import styles from "./header.module.scss";
-
+import React from "react";
 import CenterColumn from "./center/CenterColumn";
+import styles from "./header.module.scss";
 import LeftColumn from "./left/LeftColumn";
 import RightColumn from "./right/RightColumn";
 
-function Header() {
+const Header: React.FC = () => {
 	return (
 		<header className={styles.header}>
 			<LeftColumn />
@@ -12,6 +12,6 @@ function Header() {
 			<RightColumn />
 		</header>
 	);
-}
+};
 
 export default Header;

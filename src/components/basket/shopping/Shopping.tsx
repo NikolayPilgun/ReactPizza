@@ -1,3 +1,4 @@
+import React from "react";
 import {
 	AiFillCloseCircle,
 	AiOutlineMinusCircle,
@@ -15,16 +16,7 @@ import {
 } from "../../../redux/slices/basketSlice";
 import styles from "./shopping.module.scss";
 
-function Shopping({
-	imageUrl,
-	title,
-	id,
-	sizes,
-	types,
-	price,
-	quality,
-	positionNumber,
-}: {
+type ShoppingPropsType = {
 	positionNumber: string;
 	id: number;
 	imageUrl: string;
@@ -33,7 +25,18 @@ function Shopping({
 	sizes: number;
 	types: string;
 	quality: number;
-}) {
+};
+
+const Shopping: React.FC<ShoppingPropsType> = ({
+	imageUrl,
+	title,
+	id,
+	sizes,
+	types,
+	price,
+	quality,
+	positionNumber,
+}) => {
 	const dispatch = useDispatch();
 	const onClickPlus = () => {
 		dispatch(incrementQuantity(positionNumber));
@@ -85,6 +88,6 @@ function Shopping({
 			</div>
 		</div>
 	);
-}
+};
 
 export default Shopping;

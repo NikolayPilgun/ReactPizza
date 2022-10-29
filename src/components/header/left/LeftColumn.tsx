@@ -1,9 +1,9 @@
-import styles from "./leftColumn.module.scss";
-
+import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./leftColumn.module.scss";
 import logoPizza from "./logoPizza.png";
 
-function LeftColumn() {
+const LeftColumn: React.FC = () => {
 	return (
 		<div className={styles.leftColumn}>
 			<div className={styles.logo}>
@@ -17,6 +17,6 @@ function LeftColumn() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default LeftColumn;

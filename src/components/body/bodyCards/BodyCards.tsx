@@ -2,13 +2,23 @@ import BodyCard from "./bodyCard/BodyCard";
 import styles from "./bodyCards.module.scss";
 import BodyLoading from "./bodyLoading/BodyLoading";
 //import pizzas from "../../../assets/pizzas.json";
+import React from "react";
 import { useSelector } from "react-redux";
 import { selectPizzas } from "../../../redux/slices/pizzasSlice";
 import PageError from "../../pageError/PageError";
 
-function BodyCards() {
+type BodyCardsProps = {
+	id: number;
+	imageUrl: string;
+	title: string;
+	price: number;
+	sizes: number[];
+	types: string[];
+};
+
+const BodyCards: React.FC = () => {
 	const { pizzasMain, statusLoading } = useSelector(selectPizzas);
-	const loading = [...Array(10).keys()];
+	const loading = Array.from(Array(10).keys());
 
 	return (
 		<div className={styles.bodyCards}>
@@ -17,7 +27,7 @@ function BodyCards() {
 			) : (
 				<>
 					{statusLoading === "success" ? (
-						pizzasMain.map((card) => (
+						pizzasMain.map((card: BodyCardsProps) => (
 							<BodyCard
 								key={card.id}
 								id={card.id}
@@ -35,7 +45,7 @@ function BodyCards() {
 			)}
 		</div>
 	);
-}
+};
 
 export default BodyCards;
 

@@ -1,28 +1,39 @@
 import debounce from "lodash.debounce";
-import { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
 import styles from "./bodyTitle.module.scss";
 
-function BodyTitle({ setSearchValue }) {
-	const [search, setSearch] = useState("");
-	const inputRef = useRef();
+type BodyTitleProps = { setSearchValue: any };
+
+const BodyTitle: React.FC<BodyTitleProps> = ({ setSearchValue }) => {
+	const [search, setSearch] = useState<string>("");
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	const debouncedSearch = useMemo(
 		() =>
-			debounce((val) => {
+			debounce((val: any) => {
 				setSearchValue(val);
 			}, 750),
 		[setSearchValue]
 	);
 
 	const onChangeSearch = useCallback(
-		(e) => {
-			setSearch(e.target.value);
-			debouncedSearch(e.target.value);
+		(event: any) => {
+			setSearch(event.target.value);
+			debouncedSearch(event.target.value);
 		},
 		[debouncedSearch]
 	);
+
+	const onClickSearch = () => {
+		setSearchValue("");
+		setSearch("");
+		// if (inputRef.current) {
+		// 	inputRef.current.focus();
+		// }
+		inputRef.current?.focus();
+	};
 
 	return (
 		<div className={styles.bodyTitle}>
@@ -41,20 +52,13 @@ function BodyTitle({ setSearchValue }) {
 					<BsSearch />
 				</span>
 				{search && (
-					<div
-						className={styles.close}
-						onClick={() => {
-							setSearchValue("");
-							setSearch("");
-							inputRef.current.focus();
-						}}
-					>
+					<div className={styles.close} onClick={onClickSearch}>
 						<IoCloseSharp />
 					</div>
 				)}
 			</div>
 		</div>
 	);
-}
+};
 
 export default BodyTitle;

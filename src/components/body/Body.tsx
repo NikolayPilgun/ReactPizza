@@ -9,11 +9,19 @@ import BodySubnav from "./bodySubnav/BodySubnav";
 import BodyTitle from "./bodyTitle/BodyTitle";
 import Navigation from "./navigation/Navigation";
 
-export const NavContext = React.createContext();
+type activeSortingType = { name: string; sort: string };
+type BodyContextType = {
+	activeSorting: activeSortingType;
+	setActiveSorting: any;
+};
 
-function Body() {
-	const [searchValue, setSearchValue] = useState("");
-	const [activeSorting, setActiveSorting] = useState({
+export const NavContext = React.createContext<BodyContextType>(
+	{} as BodyContextType
+);
+
+const Body: React.FC = () => {
+	const [searchValue, setSearchValue] = useState<string>("");
+	const [activeSorting, setActiveSorting] = useState<activeSortingType>({
 		name: "популярности",
 		sort: "rating",
 	});
@@ -24,6 +32,7 @@ function Body() {
 
 	useEffect(() => {
 		dispatch(
+			// @ts-ignore
 			fetchPizzasMain({
 				currentPage: activeSubnav,
 				categorIndex: categorIndex,
@@ -48,6 +57,6 @@ function Body() {
 			{statusLoading === "error" ? <></> : <BodySubnav />}
 		</div>
 	);
-}
+};
 
 export default Body;

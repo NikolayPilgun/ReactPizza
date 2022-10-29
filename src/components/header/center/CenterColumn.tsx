@@ -1,9 +1,9 @@
-import styles from "./centerColumn.module.scss";
-
+import React from "react";
 import { AiFillClockCircle } from "react-icons/ai";
 import { HiPhone } from "react-icons/hi";
+import styles from "./centerColumn.module.scss";
 
-function CenterColumn() {
+const CenterColumn: React.FC = () => {
 	return (
 		<div className={styles.centerColumn}>
 			<a className="phone" href="tel:8 (800) 111-22-33">
@@ -23,6 +23,6 @@ function CenterColumn() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default CenterColumn;

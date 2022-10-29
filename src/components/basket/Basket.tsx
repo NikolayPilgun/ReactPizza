@@ -1,12 +1,13 @@
+import React from "react";
 import { BsCart4, BsFillArrowLeftCircleFill, BsTrash } from "react-icons/bs";
-import { Link } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { clearItemBasket, selectBasket } from "../../redux/slices/basketSlice";
 import styles from "./basket.module.scss";
 import Blank from "./blank/Blank";
 import Shopping from "./shopping/Shopping";
-function Basket() {
+
+const Basket: React.FC = () => {
 	const dispatch = useDispatch();
 	const { pizzas, productQuality, totalPrice } = useSelector(selectBasket);
 
@@ -87,6 +88,6 @@ function Basket() {
 			)}
 		</div>
 	);
-}
+};
 
 export default Basket;

@@ -1,8 +1,9 @@
+import React from "react";
 import { BsBasket3 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styles from "./blank.module.scss";
 
-function Blank() {
+const Blank: React.FC = () => {
 	return (
 		<div className={styles.blank}>
 			<div className={styles.picture}>
@@ -22,6 +23,6 @@ function Blank() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Blank;

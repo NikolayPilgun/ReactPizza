@@ -1,9 +1,10 @@
+import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Banner from "../banner/Banner";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 
-function Layout() {
+const Layout: React.FC = () => {
 	const location = useLocation();
 	return (
 		<>
@@ -13,6 +14,6 @@ function Layout() {
 			<Footer />
 		</>
 	);
-}
+};
 
 export default Layout;

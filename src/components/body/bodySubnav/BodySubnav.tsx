@@ -1,16 +1,15 @@
+import React from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPage, setActiveSubnav } from "../../../redux/slices/pageSlice";
-
 import PageError from "../../pageError/PageError";
 import styles from "./bodySubnav.module.scss";
 
-function BodySubnav() {
+const BodySubnav: React.FC = () => {
 	const { numberOfPages, activeSubnav, statusLoading } =
 		useSelector(selectPage);
 	const dispatch = useDispatch();
-
-	const subnavArr = [...Array(numberOfPages).keys()];
+	const subnavArr = Array.from(Array(numberOfPages).keys());
 
 	return (
 		<div className={styles.bodySubnav}>
@@ -45,6 +44,6 @@ function BodySubnav() {
 			)}
 		</div>
 	);
-}
+};
 
 export default BodySubnav;

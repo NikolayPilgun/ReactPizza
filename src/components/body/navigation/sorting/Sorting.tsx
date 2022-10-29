@@ -1,13 +1,19 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { NavContext } from "../../Body";
 import styles from "./sorting.module.scss";
 
-function Sorting() {
-	const { activeSorting, setActiveSorting } = useContext<{
-		activeSorting: { name: string; sort: string };
-		setActiveSorting: any;
-	}>(NavContext);
+type SortingContextType = {
+	activeSorting: {
+		name: string;
+		sort: string;
+	};
+	setActiveSorting: any;
+};
+
+const Sorting: React.FC = () => {
+	const { activeSorting, setActiveSorting } =
+		useContext<SortingContextType>(NavContext);
 
 	const [sorting, setSorting] = useState<boolean>(false);
 
@@ -50,6 +56,6 @@ function Sorting() {
 			)}
 		</div>
 	);
-}
+};
 
 export default Sorting;
