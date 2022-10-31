@@ -10,24 +10,14 @@ import {
 	decrementQuantityMain,
 	incrementQuantity,
 	incrementQuantityMain,
+	PizzasBasketType,
 	removeItemBasket,
 	removeQuantityMain,
 	totalSum,
 } from "../../../redux/slices/basketSlice";
 import styles from "./shopping.module.scss";
 
-type ShoppingPropsType = {
-	positionNumber: string;
-	id: number;
-	imageUrl: string;
-	title: string;
-	price: number;
-	sizes: number;
-	types: string;
-	quality: number;
-};
-
-const Shopping: React.FC<ShoppingPropsType> = ({
+const Shopping: React.FC<PizzasBasketType> = ({
 	imageUrl,
 	title,
 	id,

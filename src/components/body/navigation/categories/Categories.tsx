@@ -1,15 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
 	selectCategory,
 	setActiveCategory,
 } from "../../../../redux/slices/categorySlice";
 import { setActiveSubnav } from "../../../../redux/slices/pageSlice";
+import { useAppDispatch } from "../../../../redux/store";
 import styles from "./categories.module.scss";
 
 const Categories: React.FC = () => {
 	const categorIndex = useSelector(selectCategory);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const categories: string[] = [
 		"Все",
 		"Мясные",

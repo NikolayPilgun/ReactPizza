@@ -4,17 +4,11 @@ import BodyLoading from "./bodyLoading/BodyLoading";
 //import pizzas from "../../../assets/pizzas.json";
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectPizzas } from "../../../redux/slices/pizzasSlice";
+import {
+	PizzasMainType,
+	selectPizzas,
+} from "../../../redux/slices/pizzasSlice";
 import PageError from "../../pageError/PageError";
-
-type BodyCardsProps = {
-	id: number;
-	imageUrl: string;
-	title: string;
-	price: number;
-	sizes: number[];
-	types: string[];
-};
 
 const BodyCards: React.FC = () => {
 	const { pizzasMain, statusLoading } = useSelector(selectPizzas);
@@ -27,7 +21,7 @@ const BodyCards: React.FC = () => {
 			) : (
 				<>
 					{statusLoading === "success" ? (
-						pizzasMain.map((card: BodyCardsProps) => (
+						pizzasMain.map((card: PizzasMainType) => (
 							<BodyCard
 								key={card.id}
 								id={card.id}

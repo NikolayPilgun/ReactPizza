@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { GoPlus } from "react-icons/go";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
 	addItemBasket,
 	addQuantityMain,
 	selectBasketById,
 	totalSum,
 } from "../../../../redux/slices/basketSlice";
+import { PizzasMainType } from "../../../../redux/slices/pizzasSlice";
+import { useAppDispatch } from "../../../../redux/store";
 import styles from "./bodyCard.module.scss";
 
-type BodyCardProps = {
-	id: number;
-	imageUrl: string;
-	title: string;
-	price: number;
-	sizes: number[];
-	types: string[];
-};
-
-const BodyCard: React.FC<BodyCardProps> = ({
+const BodyCard: React.FC<PizzasMainType> = ({
 	id,
 	imageUrl,
 	title,
@@ -28,7 +21,7 @@ const BodyCard: React.FC<BodyCardProps> = ({
 }) => {
 	const [activeCardSizes, setActiveCardSizes] = useState(sizes[0]);
 	const [activeCardType, setActiveCardType] = useState(types[0]);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const positionNumber = String(id) + String(activeCardSizes) + activeCardType;
 	const basketItem = useSelector(selectBasketById(id));
 

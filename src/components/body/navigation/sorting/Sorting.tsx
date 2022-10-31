@@ -1,27 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
-import { NavContext } from "../../Body";
+import { SortingObjType } from "../../../../redux/slices/pizzasSlice";
+import { BodyContextType, NavContext } from "../../Body";
 import styles from "./sorting.module.scss";
 
-type SortingContextType = {
-	activeSorting: {
-		name: string;
-		sort: string;
-	};
-	setActiveSorting: (obj: { name: string; sort: string }) => void;
-};
-
 const Sorting: React.FC = () => {
-	const { activeSorting, setActiveSorting } =
-		useContext<SortingContextType>(NavContext);
+	const { activeSorting, setActiveSorting, sorting, setSorting } =
+		useContext<BodyContextType>(NavContext);
 
-	const [sorting, setSorting] = useState<boolean>(false);
-
-	type ListType = {
-		name: string;
-		sort: string;
-	};
-	const list: ListType[] = [
+	const list: SortingObjType[] = [
 		{ name: "популярности(DESC)", sort: "rating" },
 		{ name: "популярности(ASC)", sort: "-rating" },
 		{ name: "цене(DESC)", sort: "price" },

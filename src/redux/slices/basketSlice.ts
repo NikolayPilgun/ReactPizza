@@ -1,6 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
-const initialState = {
+export type PizzasBasketType = {
+	positionNumber: string;
+	id: number;
+	imageUrl: string;
+	title: string;
+	price: number;
+	sizes: number;
+	types: string;
+	quality: number;
+};
+type CounterBasketType = {
+	id: number;
+	quality: number;
+};
+
+type BasketStateType = {
+	productQuality: number;
+	totalPrice: number;
+	counter: CounterBasketType[];
+	pizzas: PizzasBasketType[];
+};
+
+const initialState: BasketStateType = {
 	pizzas: [],
 	counter: [],
 	productQuality: 0,
@@ -12,7 +35,7 @@ export const basketSlice = createSlice({
 	initialState,
 	reducers: {
 		// pizzas
-		addItemBasket: (state, action) => {
+		addItemBasket: (state, action: PayloadAction<PizzasBasketType>) => {
 			const findPizzas = state.pizzas.find(
 				(obj) => obj.positionNumber === action.payload.positionNumber
 			);
@@ -22,7 +45,7 @@ export const basketSlice = createSlice({
 				state.pizzas.push(action.payload);
 			}
 		},
-		removeItemBasket: (state, action) => {
+		removeItemBasket: (state, action: PayloadAction<string>) => {
 			state.pizzas = state.pizzas.filter(
 				(obj) => obj.positionNumber !== action.payload
 			);
@@ -43,7 +66,7 @@ export const basketSlice = createSlice({
 			state.totalPrice = 0;
 		},
 
-		incrementQuantity: (state, action) => {
+		incrementQuantity: (state, action: PayloadAction<string>) => {
 			const findPizzasQuantity = state.pizzas.find(
 				(obj) => obj.positionNumber === action.payload
 			);
@@ -51,7 +74,7 @@ export const basketSlice = createSlice({
 				findPizzasQuantity.quality++;
 			}
 		},
-		decrementQuantity: (state, action) => {
+		decrementQuantity: (state, action: PayloadAction<string>) => {
 			const findQuantity = state.pizzas.find(
 				(obj) => obj.positionNumber === action.payload
 			);
@@ -61,7 +84,7 @@ export const basketSlice = createSlice({
 		},
 
 		// counter
-		addQuantityMain: (state, action) => {
+		addQuantityMain: (state, action: PayloadAction<CounterBasketType>) => {
 			const findCounter = state.counter.find(
 				(obj) => obj.id === action.payload.id
 			);
@@ -71,7 +94,7 @@ export const basketSlice = createSlice({
 				state.counter.push(action.payload);
 			}
 		},
-		incrementQuantityMain: (state, action) => {
+		incrementQuantityMain: (state, action: PayloadAction<number>) => {
 			const findQuantityMain = state.counter.find(
 				(obj) => obj.id === action.payload
 			);
@@ -79,7 +102,7 @@ export const basketSlice = createSlice({
 				findQuantityMain.quality++;
 			}
 		},
-		decrementQuantityMain: (state, action) => {
+		decrementQuantityMain: (state, action: PayloadAction<number>) => {
 			const findQuantityMain = state.counter.find(
 				(obj) => obj.id === action.payload
 			);
@@ -87,7 +110,7 @@ export const basketSlice = createSlice({
 				findQuantityMain.quality--;
 			}
 		},
-		removeQuantityMain: (state, action) => {
+		removeQuantityMain: (state, action: PayloadAction<CounterBasketType>) => {
 			const findRemoveMain = state.counter.find(
 				(obj) => obj.id === action.payload.id
 			);
@@ -97,9 +120,12 @@ export const basketSlice = createSlice({
 		},
 	},
 });
-export const selectBasketById = (id) => (state) =>
+
+export const selectBasketById = (id: number) => (state: RootState) =>
 	state.basket.counter.find((obj) => obj.id === id);
-export const selectBasket = (state) => state.basket;
+
+export const selectBasket = (state: RootState) => state.basket;
+
 export const {
 	addItemBasket,
 	removeItemBasket,

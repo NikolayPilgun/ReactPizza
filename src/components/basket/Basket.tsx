@@ -1,25 +1,19 @@
 import React from "react";
 import { BsCart4, BsFillArrowLeftCircleFill, BsTrash } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearItemBasket, selectBasket } from "../../redux/slices/basketSlice";
+import {
+	clearItemBasket,
+	PizzasBasketType,
+	selectBasket,
+} from "../../redux/slices/basketSlice";
+import { useAppDispatch } from "../../redux/store";
 import styles from "./basket.module.scss";
 import Blank from "./blank/Blank";
 import Shopping from "./shopping/Shopping";
 
-type PizzasType = {
-	positionNumber: string;
-	id: number;
-	imageUrl: string;
-	title: string;
-	price: number;
-	sizes: number;
-	types: string;
-	quality: number;
-};
-
 const Basket: React.FC = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const { pizzas, productQuality, totalPrice } = useSelector(selectBasket);
 
 	return (
@@ -43,7 +37,7 @@ const Basket: React.FC = () => {
 							<h2>Очистить корзину</h2>
 						</div>
 					</div>
-					{pizzas.map((card: PizzasType) => (
+					{pizzas.map((card: PizzasBasketType) => (
 						<Shopping
 							key={card.positionNumber}
 							id={card.id}

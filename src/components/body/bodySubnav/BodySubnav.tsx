@@ -1,14 +1,15 @@
 import React from "react";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectPage, setActiveSubnav } from "../../../redux/slices/pageSlice";
+import { useAppDispatch } from "../../../redux/store";
 import PageError from "../../pageError/PageError";
 import styles from "./bodySubnav.module.scss";
 
 const BodySubnav: React.FC = () => {
 	const { numberOfPages, activeSubnav, statusLoading } =
 		useSelector(selectPage);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const subnavArr = Array.from(Array(numberOfPages).keys());
 
 	return (
