@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getBasketCounterLS, getBasketPizzasLS } from "../../utils/getBasketLS";
+import { totalCalcPrice, totalCalcQuality } from "../../utils/totalCalc";
 import { RootState } from "../store";
 
 export type PizzasBasketType = {
@@ -11,7 +13,7 @@ export type PizzasBasketType = {
 	types: string;
 	quality: number;
 };
-type CounterBasketType = {
+export type CounterBasketType = {
 	id: number;
 	quality: number;
 };
@@ -22,12 +24,14 @@ type BasketStateType = {
 	counter: CounterBasketType[];
 	pizzas: PizzasBasketType[];
 };
+const { pizzas, productQuality, totalPrice } = getBasketPizzasLS();
+const { counter } = getBasketCounterLS();
 
 const initialState: BasketStateType = {
-	pizzas: [],
-	counter: [],
-	productQuality: 0,
-	totalPrice: 0,
+	pizzas,
+	counter,
+	productQuality,
+	totalPrice,
 };
 
 export const basketSlice = createSlice({
@@ -51,13 +55,8 @@ export const basketSlice = createSlice({
 			);
 		},
 		totalSum: (state) => {
-			state.totalPrice = state.pizzas.reduce((sum, obj) => {
-				return obj.price * obj.quality + sum;
-			}, 0);
-
-			state.productQuality = state.pizzas.reduce((sum, obj) => {
-				return obj.quality + sum;
-			}, 0);
+			state.totalPrice = totalCalcPrice(state.pizzas);
+			state.productQuality = totalCalcQuality(state.pizzas);
 		},
 		clearItemBasket: (state) => {
 			state.pizzas = [];

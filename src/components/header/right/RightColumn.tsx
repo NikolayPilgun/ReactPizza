@@ -6,7 +6,20 @@ import { selectBasket } from "../../../redux/slices/basketSlice";
 import styles from "./rightColumn.module.scss";
 
 const RightColumn: React.FC = () => {
-	const { productQuality, totalPrice } = useSelector(selectBasket);
+	const { productQuality, totalPrice, pizzas, counter } =
+		useSelector(selectBasket);
+	const isMounted = React.useRef(false);
+
+	React.useEffect(() => {
+		if (isMounted.current) {
+			const jsonPizzas = JSON.stringify(pizzas);
+			localStorage.setItem("BasketPizzas", jsonPizzas);
+			const jsonCounter = JSON.stringify(counter);
+			localStorage.setItem("BasketCounter", jsonCounter);
+		}
+
+		isMounted.current = true;
+	}, [pizzas, counter]);
 
 	return (
 		<Link to="basket">
