@@ -40,6 +40,7 @@ const BodyTitle: React.FC<BodyTitleProps> = ({ setSearchValue }) => {
 			<div className={styles.title}>
 				<h2>Пицца</h2>
 			</div>
+
 			<div className={styles.search}>
 				<input
 					ref={inputRef}
