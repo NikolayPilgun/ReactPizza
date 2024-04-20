@@ -1,6 +1,6 @@
 [![Header](https://github.com/NikolayPilgun/Portfolio/blob/main/src/data/dataImg/reactPizza/reactPizza1.svg)](https://nikolaypilgun.ru/pizzeriaStore)
 
-# Вид сайта — Интернет-магазин. Тема — Интернет-магазин пиццерии.
+# Тип сайта — Интернет-магазин. Тема — Интернет-магазин пиццерии.
 
 ## Данный сайт создан на основе YouTube-курса (проект является тренировочным).
 
